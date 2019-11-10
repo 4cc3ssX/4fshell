@@ -1,0 +1,2 @@
+# 4fshell
+This is the mini shell developed by PHP and it has not much feature but it's include terminal console and file uploading. It can also use internal or external command like (mkdir or nmap). Please send feedback, suggestion, bug or something else to me. If u modified or updated my script by yourself, please write author name and please share me back your new codes to me. Happy Hacking! Thanks and sorry for my bad codding
